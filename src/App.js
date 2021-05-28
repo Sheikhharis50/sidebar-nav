@@ -2,9 +2,7 @@ import React from "react";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import Reports from "./pages/Reports";
-import Products from "./pages/Products";
+import { Routes } from "./utils/StaticData/Routes";
 
 function App() {
   return (
@@ -12,9 +10,14 @@ function App() {
       <Router>
         <Navbar />
         <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/reports" component={Reports} />
-          <Route path="/products" component={Products} />
+          {Routes.map((route, index) => (
+            <Route
+              key={index}
+              path={route.path}
+              exact={route.exact}
+              render={route.render}
+            />
+          ))}
         </Switch>
       </Router>
     </React.Fragment>

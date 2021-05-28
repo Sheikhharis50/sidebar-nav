@@ -1,0 +1,5 @@
+@media only screen and (min-width: 720px) {
+  .layout {
+    padding-left: var(--nav-width);
+  }
+}
